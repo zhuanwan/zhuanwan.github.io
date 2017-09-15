@@ -10,27 +10,12 @@ Welcome to [Hexo](https://hexo.io/)!
 参考[hexo 文档](https://hexo.io/zh-cn/docs/)
 
 ### 关联GitHub
-
-参考[hexo 文档](https://hexo.io/zh-cn/docs/)
-
-### 多台电脑编辑
-
-本地新建分支hexo,把代码提交到远程hexo,进入blog目录,打开git bash
-
-``` bash
-git checkout -b hexo
-git add .
-git commit -m "文字描述"
-git push --set-upstream origin hexo
-```
-另一台电脑上
-公钥私钥 git bash
+1、github 创建项目
+2、公钥私钥 打开git bash
 ssh-keygen -t rsa -C "邮箱"
 
 生成公钥私钥，提示要取的名字，enter键默认id_rsa,这里我输入id_rsa_blogs,然后提示输入密码，enter键默认为空
 然后把 .ssh 目录下的id_rsa_blogs公钥放到github上
-
- 
 sh-add -l  // 查看所有添加进去的钥匙
 把刚刚创建的钥匙添加进去
 sh-add ~/.ssh/id_rsa_blogs
@@ -39,10 +24,36 @@ sh-add ~/.ssh/id_rsa_blogs
 ssh -T git@github.com
 这个会在.ssh 文件夹下创建known_hosts文件，应该是方便下次快速连接的
 
+``` bash
+ssh-keygen -t rsa -C "邮箱"
+```
+
+### 测试
+1、安装git插件 hexo-deployer-git 
+2、本地运行
+
+``` bash
+hexo g      // 生成
+hexo d      // 发布
+```
+
+[博客地址](https://zhuanwan.github.io)
 
 
-git checkout hexo
-npm install
-npm install hexo-cli -g
-git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee
+### 多台电脑编辑
+
+1、本地新建分支hexo,把源代码提交到远程hexo，这样github上就有两个分支，一个是hexo分支源码，一个master静态文件
+2、每次新电脑git clone，然后切换到hexo 分支，npm install，修改后提交hexo，然后生成发布一遍
+3、总是在hexo分支上做修改发布
+
+``` bash
+npm install             
+npm install hexo-cli -g 
+git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee // 主题
+hexo g      // 生成
+hexo d      // 发布
+```
+
+
+
 
