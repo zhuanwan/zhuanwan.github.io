@@ -44,4 +44,5 @@ ssh -T git@github.com
 git checkout hexo
 npm install
 npm install hexo-cli -g
+git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee
 
