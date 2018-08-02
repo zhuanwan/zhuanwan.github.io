@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="hexo博客搭建和一些配置">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-02T06:29:00.208Z">
+<meta property="og:updated_time" content="2018-08-02T06:31:31.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客搭建">
 <meta name="twitter:description" content="hexo博客搭建和一些配置">
@@ -296,7 +296,8 @@
         <p>hexo博客搭建和一些配置<br><a id="more"></a></p>
 <h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><h3 id="本地新建项目"><a href="#本地新建项目" class="headerlink" title="本地新建项目"></a>本地新建项目</h3><p>参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo 文档</a></p>
 <h3 id="关联GitHub"><a href="#关联GitHub" class="headerlink" title="关联GitHub"></a>关联GitHub</h3><p>1、github 创建项目<br>2、公钥私钥 打开git bash,进入目录 cd ~/.ssh<br>(如果期间报错’could not open a authentication agent’ 输入 eval `ssh-agent`)</p>
-<p>ssh-keygen -t rsa -C “<a href="mailto:youremail@email.com" target="_blank" rel="noopener">youremail@email.com</a>“ 生成公钥私钥，提示要取的名字，enter键默认id_rsa,这里我输入id_rsa_blogs,<br>(或者 ssh-keygen -t rsa -C “<a href="mailto:youremail@email.com" target="_blank" rel="noopener">youremail@email.com</a>“ -f ~/.ssh/id_rsa_gitlab)然后提示输入密码，enter键默认为空<br>或者 ssh-keygen -t rsa -C “<a href="mailto:youremail@email.com" target="_blank" rel="noopener">youremail@email.com</a>“ -f ~/.ssh/id_rsa_gitlab</p>
+<p>ssh-keygen -t rsa -C “<a href="mailto:youremail@email.com" target="_blank" rel="noopener">youremail@email.com</a>“ 生成公钥私钥，提示要取的名字，enter键默认id_rsa,这里我输入id_rsa_blogs,然后提示输入密码，enter键默认为空</p>
+<p>或者 ssh-keygen -t rsa -C “<a href="mailto:youremail@email.com" target="_blank" rel="noopener">youremail@email.com</a>“ -f ~/.ssh/id_rsa_blogs,然后提示输入密码，enter键默认为空</p>
 <p>3、自定义钥匙名字需要在~/.ssh下新建config文件，（C:\Users\Administrator.ssh）比如我这里的id_rsa_blogs,在config文件里输入以下代码保存<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_blogs</span><br><span class="line"></span><br><span class="line"><span class="comment">#有其他加</span></span><br><span class="line">Host gilab.com</span><br><span class="line">HostName github.com（或公司的域名）</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_blogs</span><br></pre></td></tr></table></figure></p>
 <p>3、然后把 .ssh 目录下的id_rsa_blogs公钥放到github上<br>ssh-add -l  // 查看所有添加进去的钥匙<br>把刚刚创建的钥匙添加进去<br>ssh-add ~/.ssh/id_rsa_blogs<br>再次输入 ssh-add -l 可以看到刚刚加入的钥匙<br>测试是否连接到github<br>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a><br>这个会在.ssh 文件夹下创建known_hosts文件，应该是方便下次快速连接的</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>1、安装git插件 hexo-deployer-git<br>2、本地运行</p>
@@ -320,7 +321,7 @@
         <p><span>本文标题:</span><a href="/2018/08/02/test1/">hexo博客搭建</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zhuanwan</a></p>
         <p><span>发布时间:</span>2018-08-02, 10:44:30</p>
-        <p><span>最后更新:</span>2018-08-02, 14:29:00</p>
+        <p><span>最后更新:</span>2018-08-02, 14:31:31</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/02/test1/" title="hexo博客搭建">https://zhuanwan.github.io/2018/08/02/test1/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zhuanwan.github.io/2018/08/02/test1/　　作者: zhuanwan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -335,10 +336,16 @@
 
     <nav id="article-nav">
         
-        
-            <div id="article-nav-older" class="article-nav-title">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/2018/08/02/hello-world/">
                     Hello World
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/02/git/">
+                    git 命令
                 </a>
             </div>
         
@@ -406,19 +413,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/08/02/hello-world/" title="上一篇: Hello World">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/02/hello-world/" title="下一篇: Hello World">
+            <a href="/2018/08/02/git/" title="下一篇: git 命令">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/test1/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/git/">git 命令</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/test1/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/git/">git 命令</a></li></ul>
 
 
 
