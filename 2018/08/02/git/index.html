@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="git一些命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-02T02:44:30.416Z">
+<meta property="og:updated_time" content="2018-08-02T03:53:13.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git 命令">
 <meta name="twitter:description" content="git一些命令">
@@ -294,7 +294,10 @@
       
           
         <p>git一些命令<br><a id="more"></a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 删除本地分支 </span><br><span class="line">git branch -D branch-name</span><br><span class="line"></span><br><span class="line">// 查看所有分支，本地和远程</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 删除本地分支 </span><br><span class="line">git branch -D branch-name</span><br><span class="line"></span><br><span class="line">// 删除远端分支</span><br><span class="line">git branch -d -r branchname</span><br><span class="line"></span><br><span class="line">// 查看所有分支，本地和远程</span><br><span class="line">git branch -a</span><br><span class="line"></span><br><span class="line">// 创建新的分支，但是不切换过去</span><br><span class="line">git branch newbranch</span><br><span class="line"></span><br><span class="line">// 分支切换，切换到分支branchname 上去</span><br><span class="line">git checkout branchname</span><br><span class="line"></span><br><span class="line">// 创建新的分支branchname，并且切换过去</span><br><span class="line">git checkout -b branchname</span><br></pre></td></tr></table></figure>
+<p>gitlab上删除了某些远程分支，但在本地git branch -a仍然可以看到被删除的远程分支，</p>
+<p>git remote show origin 来查看有关于origin的一些信息，可以发下他提示你用 git remote prune 来删除分支</p>
+<p>执行git remote prune，在git branch -a查看发下远程删除的分支没有了</p>
 
       
     </div>
@@ -306,7 +309,7 @@
         <p><span>本文标题:</span><a href="/2018/08/02/git/">git 命令</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zhuanwan</a></p>
         <p><span>发布时间:</span>2018-08-02, 10:44:30</p>
-        <p><span>最后更新:</span>2018-08-02, 10:44:30</p>
+        <p><span>最后更新:</span>2018-08-02, 11:53:13</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/02/git/" title="git 命令">https://zhuanwan.github.io/2018/08/02/git/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zhuanwan.github.io/2018/08/02/git/　　作者: zhuanwan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -322,8 +325,8 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/02/test1/">
-                    hexo博客搭建
+                <a href="/2018/08/02/hello-world/">
+                    Hello World
                 </a>
             </div>
         
@@ -392,7 +395,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/02/test1/" title="上一篇: hexo博客搭建">
+            <a href="/2018/08/02/hello-world/" title="上一篇: Hello World">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -404,7 +407,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/test1/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/git/">git 命令</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/test1/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/git/">git 命令</a></li></ul>
 
 
 
