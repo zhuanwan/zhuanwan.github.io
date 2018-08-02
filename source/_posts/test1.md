@@ -13,12 +13,19 @@ hexo博客搭建和一些配置
 2、公钥私钥 打开git bash,进入目录 cd ~/.ssh
 (如果期间报错'could not open a authentication agent' 输入 eval \`ssh-agent\`)
 
-ssh-keygen 生成公钥私钥，提示要取的名字，enter键默认id_rsa,这里我输入id_rsa_blogs,然后提示输入密码，enter键默认为空
-自定义钥匙名字需要在~/.ssh下新建config文件，比如我这里的id_rsa_blogs,在config文件里输入以下代码保存
+ssh-keygen -t rsa -C "youremail@email.com" 生成公钥私钥，提示要取的名字，enter键默认id_rsa,这里我输入id_rsa_blogs,然后提示输入密码，enter键默认为空
+
+或者 ssh-keygen -t rsa -C "youremail@email.com" -f ~/.ssh/id_rsa_blogs,然后提示输入密码，enter键默认为空
+
+3、自定义钥匙名字需要在~/.ssh下新建config文件，（C:\Users\Administrator\.ssh）比如我这里的id_rsa_blogs,在config文件里输入以下代码保存
 ``` bash
-github.com
+Host github.com
 HostName github.com
-User git
+IdentityFile ~/.ssh/id_rsa_blogs
+
+#有其他加
+Host gilab.com
+HostName github.com（或公司的域名）
 IdentityFile ~/.ssh/id_rsa_blogs
 ```
 
