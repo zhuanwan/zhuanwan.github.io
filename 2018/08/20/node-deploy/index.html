@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="示例">
+<meta name="description" content="node + nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://zhuanwan.github.io/2018/08/02/hello-world/index.html">
+<meta property="og:title" content="linux部署node">
+<meta property="og:url" content="https://zhuanwan.github.io/2018/08/20/node-deploy/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="示例">
+<meta property="og:description" content="node + nginx">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-02T02:44:30.416Z">
+<meta property="og:updated_time" content="2018-08-20T03:03:16.527Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="示例">
+<meta name="twitter:title" content="linux部署node">
+<meta name="twitter:description" content="node + nginx">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hello World | Hexo</title>
+<title>linux部署node | Hexo</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -257,11 +257,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-node-deploy" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/02/hello-world/" class="article-date">
-      <time datetime="2018-08-02T02:44:30.416Z" itemprop="datePublished">2018-08-02</time>
+      <a href="/2018/08/20/node-deploy/" class="article-date">
+      <time datetime="2018-08-20T02:47:02.590Z" itemprop="datePublished">2018-08-20</time>
 </a>
 
 
@@ -276,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      linux部署node
     </h1>
   
 
@@ -293,16 +293,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>示例<br><a id="more"></a></p>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>node + nginx<br><a id="more"></a></p>
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>/usr/local：用户级的程序目录，可以理解为C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。<br>/usr/src：系统级的源码目录。<br>/usr/local/src：用户级的源码目录。<br><a href="https://blog.csdn.net/aqxin/article/details/48324377" target="_blank" rel="noopener">转</a></p>
+<h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line"></span><br><span class="line">nvm install node</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/gaomengwang/article/details/77540429" target="_blank" rel="noopener">参考</a><br>备注：<a href="http://nodejs.org/dist/" target="_blank" rel="noopener">node包地址</a></p>
+<h2 id="python安装-不报错跳过"><a href="#python安装-不报错跳过" class="headerlink" title="python安装(不报错跳过)"></a>python安装(不报错跳过)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz  //下载</span><br><span class="line"></span><br><span class="line">yum install xz-libs  //解压工具如果没有就安装</span><br><span class="line">xz -d Python-2.7.6.tar.xz  //解压</span><br><span class="line">tar -xvf Python-2.7.6.tar</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> Python-2.7.6</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br><span class="line">//我们需要自己安装Python 2.7.6。但是值得注意的是，我们必须不能破坏系统的环境。因为几个关键的实用应用程序依赖于Python 2.6.6。如果替换了系统的Python环境就会发生很多难以预见的错误，导致要重装系统</span><br><span class="line">make &amp;&amp; make altinstall</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-python-2-7-6-and-3-3-3-on-centos-6-4" target="_blank" rel="noopener">参考</a><br><a href="http://www.nowamagic.net/academy/detail/1330215" target="_blank" rel="noopener">参考</a></p>
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>项目放/usr/local/src,用xftp拖过去就行<br>安装pm2,运行项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install pm2 -g</span><br><span class="line">pm2 start app.js</span><br></pre></td></tr></table></figure></p>
+<p>浏览器运行 <a href="http://23.106.139.203:3000" target="_blank" rel="noopener">http://23.106.139.203:3000</a></p>
+<h2 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx  // 安装nginx</span><br><span class="line">whereis nginx  // 查看nginx安装目录，/ect/nginx</span><br></pre></td></tr></table></figure>
+<p>在/ect/nginx/conf.d文件夹新建文件 xx.conf,输入一下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">        proxy_set_header X-Nginx-Proxy <span class="literal">true</span>;</span><br><span class="line">        proxy_set_header Connection <span class="string">""</span>;</span><br><span class="line">        proxy_pass http://23.106.139.203:3000; <span class="comment">#node项目</span></span><br><span class="line">        proxy_redirect default ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>cd /ect/nginx 测试nginx并运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx -s reload</span><br><span class="line">//如果出错(nginx: [error] invalid PID number <span class="string">""</span> <span class="keyword">in</span> <span class="string">"/var/run/nginx.pid"</span></span><br><span class="line">)，运行</span><br><span class="line">nginx -c /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure></p>
+<p>浏览器运行 <a href="http://23.106.139.203" target="_blank" rel="noopener">http://23.106.139.203</a></p>
+<h2 id="nginx-vue-histtory模式"><a href="#nginx-vue-histtory模式" class="headerlink" title="nginx vue histtory模式"></a>nginx vue histtory模式</h2><p>1、config 文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">build: &#123;</span><br><span class="line">    assetsPublicPath: <span class="string">'/'</span>,  // <span class="string">'./'</span>改成<span class="string">'/'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、vue router<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default new Router(&#123;</span><br><span class="line">  mode: <span class="string">'history'</span>,</span><br><span class="line">  routes: [</span><br><span class="line">    ...</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>3、nginx配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 89;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root /usr/<span class="built_in">local</span>/src/jiatui89;</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html = 404;</span><br><span class="line">        error_page 404 /index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>vue history 模式链接请求后台发现没有这个路由，找不到就跳转首页，让vue的路由去处理</p>
 
       
     </div>
@@ -311,13 +317,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/02/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/20/node-deploy/">linux部署node</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zhuanwan</a></p>
-        <p><span>发布时间:</span>2018-08-02, 10:44:30</p>
-        <p><span>最后更新:</span>2018-08-02, 10:44:30</p>
+        <p><span>发布时间:</span>2018-08-20, 10:47:02</p>
+        <p><span>最后更新:</span>2018-08-20, 11:03:16</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/02/hello-world/" title="Hello World">https://zhuanwan.github.io/2018/08/02/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zhuanwan.github.io/2018/08/02/hello-world/　　作者: zhuanwan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/20/node-deploy/" title="linux部署node">https://zhuanwan.github.io/2018/08/20/node-deploy/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zhuanwan.github.io/2018/08/20/node-deploy/　　作者: zhuanwan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -330,15 +336,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/02/test1/">
-                    hexo博客搭建
+                <a href="/2018/08/20/call/">
+                    call
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/02/git/">
-                    git 命令
+                <a href="/2018/08/02/test1/">
+                    hexo博客搭建
                 </a>
             </div>
         
@@ -350,7 +356,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件目录"><span class="toc-number">1.</span> <span class="toc-text">文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装nodejs"><span class="toc-number">2.</span> <span class="toc-text">安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python安装-不报错跳过"><span class="toc-number">3.</span> <span class="toc-text">python安装(不报错跳过)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布"><span class="toc-number">4.</span> <span class="toc-text">发布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置nginx"><span class="toc-number">5.</span> <span class="toc-text">配置nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx-vue-histtory模式"><span class="toc-number">6.</span> <span class="toc-text">nginx vue histtory模式</span></a></li></ol>
         
     </div>
     <style>
@@ -386,7 +392,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Hello World　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"linux部署node　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -406,7 +412,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/02/test1/" title="上一篇: hexo博客搭建">
+            <a href="/2018/08/20/call/" title="上一篇: call">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -414,7 +420,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/02/git/" title="下一篇: git 命令">
+            <a href="/2018/08/02/test1/" title="下一篇: hexo博客搭建">
                 <i class="fa fa-angle-right"></i>
             </a>
         
