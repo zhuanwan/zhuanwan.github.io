@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="node + nginx">
+<meta name="description" content="node服务器部署，nginx， vue history + nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux部署node">
 <meta property="og:url" content="https://zhuanwan.github.io/2018/08/20/node-deploy/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="node + nginx">
+<meta property="og:description" content="node服务器部署，nginx， vue history + nginx">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-20T03:03:16.527Z">
+<meta property="og:updated_time" content="2018-09-06T06:40:53.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux部署node">
-<meta name="twitter:description" content="node + nginx">
+<meta name="twitter:description" content="node服务器部署，nginx， vue history + nginx">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -293,7 +293,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>node + nginx<br><a id="more"></a></p>
+        <p>node服务器部署，nginx， vue history + nginx<br><a id="more"></a></p>
 <h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>/usr/local：用户级的程序目录，可以理解为C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。<br>/usr/src：系统级的源码目录。<br>/usr/local/src：用户级的源码目录。<br><a href="https://blog.csdn.net/aqxin/article/details/48324377" target="_blank" rel="noopener">转</a></p>
 <h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.nvm/nvm.sh</span><br><span class="line"></span><br><span class="line">nvm install node</span><br></pre></td></tr></table></figure>
 <p><a href="https://blog.csdn.net/gaomengwang/article/details/77540429" target="_blank" rel="noopener">参考</a><br>备注：<a href="http://nodejs.org/dist/" target="_blank" rel="noopener">node包地址</a></p>
@@ -305,10 +305,14 @@
 <p>在/ect/nginx/conf.d文件夹新建文件 xx.conf,输入一下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">        proxy_set_header X-Nginx-Proxy <span class="literal">true</span>;</span><br><span class="line">        proxy_set_header Connection <span class="string">""</span>;</span><br><span class="line">        proxy_pass http://23.106.139.203:3000; <span class="comment">#node项目</span></span><br><span class="line">        proxy_redirect default ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>cd /ect/nginx 测试nginx并运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx -s reload</span><br><span class="line">//如果出错(nginx: [error] invalid PID number <span class="string">""</span> <span class="keyword">in</span> <span class="string">"/var/run/nginx.pid"</span></span><br><span class="line">)，运行</span><br><span class="line">nginx -c /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure></p>
 <p>浏览器运行 <a href="http://23.106.139.203" target="_blank" rel="noopener">http://23.106.139.203</a></p>
-<h2 id="nginx-vue-histtory模式"><a href="#nginx-vue-histtory模式" class="headerlink" title="nginx vue histtory模式"></a>nginx vue histtory模式</h2><p>1、config 文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">build: &#123;</span><br><span class="line">    assetsPublicPath: <span class="string">'/'</span>,  // <span class="string">'./'</span>改成<span class="string">'/'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="nginx-vue-histtory模式（根路径）"><a href="#nginx-vue-histtory模式（根路径）" class="headerlink" title="nginx vue histtory模式（根路径）"></a>nginx vue histtory模式（根路径）</h2><p>1、config 文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">build: &#123;</span><br><span class="line">    assetsPublicPath: <span class="string">'/'</span>,  // <span class="string">'./'</span>改成<span class="string">'/'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2、vue router<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default new Router(&#123;</span><br><span class="line">  mode: <span class="string">'history'</span>,</span><br><span class="line">  routes: [</span><br><span class="line">    ...</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>3、nginx配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 89;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root /usr/<span class="built_in">local</span>/src/jiatui89;</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html = 404;</span><br><span class="line">        error_page 404 /index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>vue history 模式链接请求后台发现没有这个路由，找不到就跳转首页，让vue的路由去处理</p>
+<p>vue history 模式链接请求后台发现没有这个路由，找不到就跳转首页，让vue的路由去处理<br><a href="http://23.106.139.203:89" target="_blank" rel="noopener">访问</a></p>
+<h2 id="nginx-vue-histtory模式（二级域名）"><a href="#nginx-vue-histtory模式（二级域名）" class="headerlink" title="nginx vue histtory模式（二级域名）"></a>nginx vue histtory模式（二级域名）</h2><p>1、config 文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">build: &#123;</span><br><span class="line">    assetsPublicPath: <span class="string">'https://xxx.xxx.com/shop/assets/'</span>, // 方式1，打包生成的文件static文件夹放 https://xxx.xxx.com/shop/assets 下</span><br><span class="line">    assetsPublicPath: <span class="string">'/'</span>,                                // 方式2，打包生成的文件放index同级目录</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、vue router<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default new Router(&#123;</span><br><span class="line">  mode: <span class="string">'history'</span>,</span><br><span class="line">  base: <span class="string">'/shop'</span>,</span><br><span class="line">  routes: [</span><br><span class="line">    ...</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>3、nginx配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 90;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location /shop &#123;</span><br><span class="line">        root /usr/<span class="built_in">local</span>/src/jiatui90;</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html = 404;</span><br><span class="line">        error_page 404 /index.html;</span><br><span class="line">     &#125;</span><br><span class="line">     // 如果要把静态资源js,css,img等放根目录下，那么写下面这句话，并设置assetsPublicPath方式2</span><br><span class="line">     location  ~ .*\.(jpg|jpeg|gif|png|ico|css|js|pdf|txt)$ &#123;</span><br><span class="line">        root /usr/<span class="built_in">local</span>/src/jiatui90;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://23.106.139.203:90/shop" target="_blank" rel="noopener">访问</a></p>
 
       
     </div>
@@ -320,7 +324,7 @@
         <p><span>本文标题:</span><a href="/2018/08/20/node-deploy/">linux部署node</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zhuanwan</a></p>
         <p><span>发布时间:</span>2018-08-20, 10:47:02</p>
-        <p><span>最后更新:</span>2018-08-20, 11:03:16</p>
+        <p><span>最后更新:</span>2018-09-06, 14:40:53</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/20/node-deploy/" title="linux部署node">https://zhuanwan.github.io/2018/08/20/node-deploy/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zhuanwan.github.io/2018/08/20/node-deploy/　　作者: zhuanwan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -343,7 +347,7 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/02/test1/">
+                <a href="/2018/08/02/hexo/">
                     hexo博客搭建
                 </a>
             </div>
@@ -356,7 +360,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件目录"><span class="toc-number">1.</span> <span class="toc-text">文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装nodejs"><span class="toc-number">2.</span> <span class="toc-text">安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python安装-不报错跳过"><span class="toc-number">3.</span> <span class="toc-text">python安装(不报错跳过)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布"><span class="toc-number">4.</span> <span class="toc-text">发布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置nginx"><span class="toc-number">5.</span> <span class="toc-text">配置nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx-vue-histtory模式"><span class="toc-number">6.</span> <span class="toc-text">nginx vue histtory模式</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件目录"><span class="toc-number">1.</span> <span class="toc-text">文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装nodejs"><span class="toc-number">2.</span> <span class="toc-text">安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python安装-不报错跳过"><span class="toc-number">3.</span> <span class="toc-text">python安装(不报错跳过)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布"><span class="toc-number">4.</span> <span class="toc-text">发布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置nginx"><span class="toc-number">5.</span> <span class="toc-text">配置nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx-vue-histtory模式（根路径）"><span class="toc-number">6.</span> <span class="toc-text">nginx vue histtory模式（根路径）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx-vue-histtory模式（二级域名）"><span class="toc-number">7.</span> <span class="toc-text">nginx vue histtory模式（二级域名）</span></a></li></ol>
         
     </div>
     <style>
@@ -420,13 +424,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/02/test1/" title="下一篇: hexo博客搭建">
+            <a href="/2018/08/02/hexo/" title="下一篇: hexo博客搭建">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/vue element-ui/">vue element-ui</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/inherit/">继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/call/">call</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/node-deploy/">linux部署node</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/test1/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/git/">git 命令</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/webstorm/">webstorm</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/vue element-ui/">vue element-ui</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/inherit/">继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/call/">call</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/node-deploy/">linux部署node</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hexo/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/git/">git 命令</a></li></ul>
 
 
 
