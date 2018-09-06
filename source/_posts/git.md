@@ -30,7 +30,14 @@ git remote set-url origin [url]
 
 
 ```
-
+```
+// 本地
+git add <filename>
+git add .
+git commit -m "代码提交信息"
+// 远程
+git push origin master
+```
 gitlab上删除了某些远程分支，但在本地git branch -a仍然可以看到被删除的远程分支，
 
 git remote show origin 来查看有关于origin的一些信息，可以发现他提示你用 git remote prune 来删除分支

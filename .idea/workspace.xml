@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7d62178-1bd5-44a8-88f3-9f5d359243fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/zhuanwan.github.io.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/source/_posts/webstorm.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/node-deploy.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/node-deploy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/test1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/test1.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/hexo.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -146,8 +152,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1052" />
-    <option name="y" value="36" />
+    <option name="x" value="662" />
+    <option name="y" value="93" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -214,18 +220,17 @@
       <workItem from="1536113849274" duration="734000" />
       <workItem from="1536114602214" duration="254000" />
       <workItem from="1536130449097" duration="89000" />
-      <workItem from="1536215266786" duration="1910000" />
+      <workItem from="1536215266786" duration="2283000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2987000" />
+    <option name="totallyTimeSpent" value="3360000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1052" y="36" width="1400" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="1100" y="74" width="1400" height="1000" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -237,7 +242,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.35112694" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.35112694" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
