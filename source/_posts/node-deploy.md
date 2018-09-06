@@ -1,6 +1,6 @@
 title: linux部署node
 ---
-node + nginx
+node服务器部署，nginx， vue history + nginx
 <!-- more -->
 ## 文件目录
 /usr/local：用户级的程序目录，可以理解为C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。
@@ -76,7 +76,7 @@ nginx -c /etc/nginx/nginx.conf
 ```
 浏览器运行 http://23.106.139.203
 
-## nginx vue histtory模式
+## nginx vue histtory模式（根路径）
 1、config 文件 
 ``` bash
 build: {
@@ -106,3 +106,41 @@ server {
 }
 ```
 vue history 模式链接请求后台发现没有这个路由，找不到就跳转首页，让vue的路由去处理
+[访问](http://23.106.139.203:89)
+
+## nginx vue histtory模式（二级域名）
+1、config 文件
+``` bash
+build: {
+    assetsPublicPath: 'https://xxx.xxx.com/shop/assets/', // 方式1，打包生成的文件static文件夹放 https://xxx.xxx.com/shop/assets 下
+    assetsPublicPath: '/',                                // 方式2，打包生成的文件放index同级目录
+}
+```
+2、vue router
+``` bash
+export default new Router({
+  mode: 'history',
+  base: '/shop',
+  routes: [
+    ...
+  ]
+})
+```
+3、nginx配置
+``` bash
+server {
+    listen 90;
+    server_name localhost;
+    location /shop {
+        root /usr/local/src/jiatui90;
+        index index.html;
+        try_files $uri $uri/ /index.html = 404;
+        error_page 404 /index.html;
+     }
+     // 如果要把静态资源js,css,img等放根目录下，那么写下面这句话，并设置assetsPublicPath方式2
+     location  ~ .*\.(jpg|jpeg|gif|png|ico|css|js|pdf|txt)$ {
+        root /usr/local/src/jiatui90;
+     }
+}
+```
+[访问](http://23.106.139.203:90/shop)
