@@ -144,3 +144,40 @@ server {
 }
 ```
 [访问](http://23.106.139.203:90/shop)
+
+## nginx 常用命令
+```
+ nginx -v             // 查看Nginx的版本号
+ start nginx          // 启动Nginx
+ nginx -s stop        //快速停止或关闭Nginx
+ nginx -s quit        // 正常停止或关闭  Nginx
+ nginx -t             // 测试修改的config文件是否正确
+ nginx -s reload      // 配置文件修改重装载命令
+```
+
+## nginx 本地解决跨域
+config文件 转 https://blog.csdn.net/kh717586350/article/details/78802611
+```
+server {
+    #前端ajax请求需要使用的地址为本机地址（就是ipconfig显示的地址因为Nginx部署在本地）,前端ajax请求需要使用端口为9000（可以随便选个）
+    listen  9000;
+    #服务器的名字随便去貌似没区别
+    server_name  bididc;
+
+    #下面这些都加了always，不知道有没区别，反正之前加了这些不行
+    #特别是Access-Control-Allow-Origin，之前一直是*,都不管用
+    add_header 'Access-Control-Allow-Methods' 'GET,OPTIONS,PUT,DELETE' always;
+    add_header 'Access-Control-Allow-Credentials' 'true' always;
+    add_header 'Access-Control-Allow-Origin' '$http_origin' always;
+    add_header 'Access-Control-Allow-Headers' 'Authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With' always;
+
+    if ($request_method = OPTIONS ) {
+        return 200;
+    }
+
+    location / {
+        #真实访问的服务器地址，因为在本机所以是localhost
+        proxy_pass http://192.168.1.101:8080/;
+    }
+}
+```
