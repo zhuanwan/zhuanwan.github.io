@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Email: huiliang1021111314@gmail.comGitHub: https://github.com/zhuanwan">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://zhuanwan.github.io/about/index.html">
+<meta name="description" content="git一些命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git 命令">
+<meta property="og:url" content="https://zhuanwan.github.io/2018/10/17/git/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Email: huiliang1021111314@gmail.comGitHub: https://github.com/zhuanwan">
+<meta property="og:description" content="git一些命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-17T01:41:49.909Z">
+<meta property="og:updated_time" content="2018-10-17T01:41:49.885Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="Email: huiliang1021111314@gmail.comGitHub: https://github.com/zhuanwan">
+<meta name="twitter:title" content="git 命令">
+<meta name="twitter:description" content="git一些命令">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//libs.baidu.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>about | Hexo</title>
+<title>git 命令 | Hexo</title>
 
 <script src="//libs.baidu.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//libs.baidu.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,7 +67,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -255,11 +255,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-      <time datetime="2018-10-17T01:41:49.909Z" itemprop="datePublished">2018-10-17</time>
+      <a href="/2018/10/17/git/" class="article-date">
+      <time datetime="2018-10-17T01:41:49.885Z" itemprop="datePublished">2018-10-17</time>
 </a>
 
 
@@ -274,7 +274,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      git 命令
     </h1>
   
 
@@ -291,26 +291,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
-
-
-          
-        <p>Email: <a href="mailto:huiliang1021111314@gmail.com" target="_blank" rel="noopener">huiliang1021111314@gmail.com</a><br>GitHub: <a href="https://github.com/zhuanwan" target="_blank" rel="noopener">https://github.com/zhuanwan</a></p>
+        <p>git一些命令<br><a id="more"></a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 删除本地分支 </span><br><span class="line">git branch -D branch-name</span><br><span class="line"></span><br><span class="line">// 删除远程分支</span><br><span class="line">git branch -r -d origin/branch-name</span><br><span class="line">git push origin :branch-name</span><br><span class="line"></span><br><span class="line">// 查看所有分支，本地和远程</span><br><span class="line">git branch -a</span><br><span class="line"></span><br><span class="line">// 创建新的分支，但是不切换过去</span><br><span class="line">git branch newbranch</span><br><span class="line"></span><br><span class="line">// 分支切换，切换到分支branchname 上去</span><br><span class="line">git checkout branchname</span><br><span class="line"></span><br><span class="line">// 创建新的分支branchname，并且切换过去</span><br><span class="line">git checkout -b branchname</span><br><span class="line"></span><br><span class="line">// 重新设置远程路径</span><br><span class="line">// 如果输错密码就删除Credentials里面的文件</span><br><span class="line">// C:\Users\你的用户名\AppData\Local\Microsoft\Credentials 删除就不会记住密码</span><br><span class="line">git remote <span class="built_in">set</span>-url origin [url]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 本地</span><br><span class="line">git add &lt;filename&gt;</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;代码提交信息&quot;</span><br><span class="line">// 远程</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>gitlab上删除了某些远程分支，但在本地git branch -a仍然可以看到被删除的远程分支，</p>
+<p>git remote show origin 来查看有关于origin的一些信息，可以发现他提示你用 git remote prune 来删除分支</p>
+<p>执行git remote prune，在git branch -a查看发下远程删除的分支没有了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git remote <span class="built_in">set</span>-url origin [url]   重新设置远程路径</span><br><span class="line"></span><br><span class="line">如果输错密码就删除Credentials里面的文件</span><br><span class="line"></span><br><span class="line">C:\Users\你的用户名\AppData\Local\Microsoft\Credentials 删除就不会记住密码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git改文件名大写提交不了 配置大小写敏感</span><br><span class="line"></span><br><span class="line">git config core.ignorecase <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -318,10 +305,65 @@
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/10/17/git/">git 命令</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">zhuanwan</a></p>
+        <p><span>发布时间:</span>2018-10-17, 09:41:49</p>
+        <p><span>最后更新:</span>2018-10-17, 09:41:49</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/17/git/" title="git 命令">https://zhuanwan.github.io/2018/10/17/git/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zhuanwan.github.io/2018/10/17/git/　　作者: zhuanwan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/10/17/hexo/">
+                    hexo博客搭建
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/17/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -339,7 +381,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"about　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"git 命令　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -354,6 +396,26 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/10/17/hexo/" title="上一篇: hexo博客搭建">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/10/17/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/webstorm/">webstorm</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/vue element-ui/">vue element-ui</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/nginx/">linux部署node</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/inherit/">继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/hexo/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/git/">git 命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/call/">call</a></li></ul>
 
 
 
