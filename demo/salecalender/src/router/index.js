@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import SaleCalender from '@/components/saleCalender'
-import SaleCalender2 from '@/components/saleCalender2'
+import SaleCalender3 from '@/components/saleCalender3'
 import test from '@/components/test'
-import test2 from '@/components/test2'
 import c from '@/components/calender'
 
 Vue.use(Router)
@@ -16,14 +15,14 @@ export default new Router({
       component: SaleCalender
     },
     {
-      path: '/1',
-      name: 'saleCalender2',
-      component: SaleCalender2
+      path: '/3',
+      name: 'saleCalender3',
+      component: SaleCalender3
     },
     {
-      path: '/test2',
-      name: 'test2',
-      component: test2
+      path: '/test',
+      name: 'test',
+      component: test
     },
     {
       path: '/c',

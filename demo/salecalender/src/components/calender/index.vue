@@ -30,8 +30,6 @@ export default {
   data () {
     return {
       isHiddenCalender: true,  // 是否隐藏日历，默认隐藏
-      // startTime: null,
-      // endTime: null,
       startTime: '2018-07-02',
       endTime: '2018-08-02'
     }
