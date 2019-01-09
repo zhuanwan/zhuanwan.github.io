@@ -1,0 +1,8 @@
+  <!-- 购物车icon -->
+  <view class="icon" bindtap="goTop">
+    <form report-submit bindsubmit="handleSendFormId">
+      <button class="button-opacity" formType="submit"></button>
+    </form>
+    <image mode="aspectFill" class="img" src="{{icon}}"/>
+    <view class="t">{{value}}</view>
+  </view>

@@ -1,0 +1,6 @@
+/* pages/tabbar/imgcrop/imgcrop.wxss */
+.long{
+    width: 100%;
+    height: 20000rpx;
+    background-color: #ccc;
+}

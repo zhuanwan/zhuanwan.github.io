@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/tabbar/imgcrop/imgcrop",
+    "pages/logs/logs",
+    "pages/tabbar/calendar/calendar",
+    "pages/tabbar/usercenter/usercenter",
+    "pages/editOptional/editOptional"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "便于客户到达企业参观拜访"
+    }
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#333",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/imgcrop/imgcrop",
+        "text": "图片裁剪",
+        "iconPath": "/src/images/tabbar/store.png",
+        "selectedIconPath": "/src/images/tabbar/store_active.png"
+      },
+      {
+        "pagePath": "pages/tabbar/calendar/calendar",
+        "text": "日历",
+        "iconPath": "/src/images/tabbar/goods.png",
+        "selectedIconPath": "/src/images/tabbar/goods_active.png"
+      },
+      {
+        "pagePath": "pages/tabbar/usercenter/usercenter",
+        "text": "我的",
+        "iconPath": "/src/images/tabbar/me.png",
+        "selectedIconPath": "/src/images/tabbar/me_active.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "go-top": "/components/go-top/go-top",
+    "move-navigation": "/components/move-navigation/move-navigation"
+  }
+}
