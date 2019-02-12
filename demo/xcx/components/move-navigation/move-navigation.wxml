@@ -1,7 +1,0 @@
-<view class="move-na"
-      style='top:{{top}}px; left:{{left}}px'
-      bindtouchstart="touchstart"
-      catchtouchmove="touchmove"
-      catchtouchend="touchend">
-  <slot/>
-</view>
